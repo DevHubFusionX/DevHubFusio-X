@@ -37,7 +37,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={isLoading || props.disabled}
-        {...props}
+        {...(props as any)}
       >
         {/* Shine effect for primary buttons */}
         {variant === 'primary' && (
