@@ -1,12 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: 'export',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-  // Repository name is 'DevHubFusio-X'
-  basePath: '/DevHubFusio-X',
+  basePath: "/DevHubFusio-X",
+  assetPrefix: "/DevHubFusio-X/",
 };
 
-export default nextConfig;
+module.exports = nextConfig;
