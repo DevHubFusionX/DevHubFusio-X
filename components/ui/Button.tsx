@@ -4,10 +4,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { HTMLMotionProps } from 'framer-motion';
+
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, 'children'> {
   variant?: 'primary' | 'success' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
+  children?: React.ReactNode;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -37,7 +40,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={isLoading || props.disabled}
-        {...(props as any)}
+        {...props}
       >
         {/* Shine effect for primary buttons */}
         {variant === 'primary' && (

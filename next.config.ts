@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: import('next').NextConfig = {
   output: "export",
   images: {
     unoptimized: true
@@ -8,4 +8,4 @@ const nextConfig = {
   assetPrefix: "/DevHubFusio-X/",
 };
 
-module.exports = nextConfig;
+export default nextConfig;
