@@ -5,9 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // If your repository is not at the root (e.g., username.github.io/repo-name/), 
-  // uncomment the next line and replace 'repo-name' with your repository name:
-  // basePath: '/repo-name',
+  // Repository name is 'DevHubFusio-X'
+  basePath: '/DevHubFusio-X',
 };
 
 export default nextConfig;
