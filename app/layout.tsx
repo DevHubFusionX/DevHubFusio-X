@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { Preloader } from "@/components/ui/Preloader";
 
 export default function RootLayout({
   children,
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Preloader />
         <Navbar />
         <main>{children}</main>
         <WhatsAppButton />

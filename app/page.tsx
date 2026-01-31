@@ -3,7 +3,7 @@ import { SelectedWorks } from "@/components/sections/SelectedWorks";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { Contact } from "@/components/sections/Contact";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
