@@ -15,71 +15,109 @@ export interface Project {
   systemParts?: SystemPart[];
   status?: "Live" | "Scaled" | "In Progress" | "Deprecated";
   architecture?: string[]; // E.g., ["Next.js", "Trpc", "Postgres", "Redis"]
+  liveLink?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: "NEMVOL",
-    category: "Fintech Architecture",
-    description: "Re-engineered core banking infrastructure for high-frequency trading reliability.",
-    metric: "$2B+ Processed",
-    year: "2024",
-    status: "Live",
-    architecture: ["Client", "API Gateway", "Settlement Engine", "Ledger DB"],
-    image: "/project1.jpg",
-    systemParts: [
-        { id: "core", name: "Settlement Engine", description: "Atomic transaction processing with < 5ms latency guarantee." },
-        { id: "api", name: "Gateway API", description: "Rate-limited, idempotent endpoints handling 50k RPS." },
-        { id: "db", name: "Ledger Replica", description: "Distributed SQL ensuring zero-downtime consistency." }
+    "id": 1,
+    "title": "Comtranz Global",
+    "category": "Service Operations Architecture",
+    "description": "Engineered a high-performance service ecosystem for a premier cleaning enterprise in Nigeria, featuring custom scheduling logic and a conversion-optimized client interface.",
+    "metric": "85% Booking Automation",
+    "year": "2024",
+    "status": "Live",
+    "architecture": [
+      "React 19",
+      "Vite",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "image": "/DevHubFusion-X/projects/Cleaner-Image.png",
+    "liveLink": "https://www.comtranzglobal.com",
+    "systemParts": [
+      {
+        "id": "dev",
+        "name": "Service Hub",
+        "description": "Custom booking engine with specialized scheduling algorithms for cleaning operations."
+      },
+      {
+        "id": "deploy",
+        "name": "Client Portal",
+        "description": "High-conversion front-end interface optimized for rapid service discovery."
+      }
     ]
   },
   {
-    id: 2,
-    title: "LUMINA",
-    category: "AI Research Platform",
-    description: "Designed the interface for a next-gen LLM training dashboard used by top researchers.",
-    metric: "40% Efficiency",
-    year: "2023",
-    image: "/project2.jpg",
-    status: "Scaled",
-    architecture: ["Dashboard", "Inference API", "Context Manager", "Vector DB"],
-    systemParts: [
-        { id: "vis", name: "Tensor Visualizer", description: "Real-time attention map rendering and model weights." },
-        { id: "context", name: "Context Manager", description: "Dynamic window management for long-context recall." },
-        { id: "pipe", name: "Inference Pipeline", description: "Streamlined node execution for rapid prototyping." }
+    "id": 2,
+    "title": "Dara Express",
+    "category": "Logistics Systems",
+    "description": "Comprehensive logistics and delivery platform optimized for cross-regional shipping and real-time tracking.",
+    "metric": "Global Shipping",
+    "year": "2024",
+    "status": "Live",
+    "image": "/DevHubFusion-X/projects/Dara-Logistics.png",
+    "liveLink": "https://daraexpress.com",
+    "architecture": ["Next.js", "Tracking API", "Fleet Manager", "Edge CDN"],
+    "systemParts": [
+      {
+        "id": "track",
+        "name": "Live Tracking",
+        "description": "Real-time delivery tracking system for end-to-end package visibility."
+      },
+      {
+        "id": "fleet",
+        "name": "Fleet Ops",
+        "description": "Integrated management system for driver dispatch and route optimization."
+      }
     ]
   },
   {
-    id: 3,
-    title: "OASIS",
-    category: "Luxury Real Estate",
-    description: "Digital experience for an exclusive property portfolio in Dubai.",
-    metric: "Sold Out",
-    year: "2023",
-    status: "Live",
-    architecture: ["WebGL UI", "Edge CDN", "Lead Engine", "CRM"],
-    image: "/project3.jpg",
-    systemParts: [
-        { id: "vr", name: "Virtual Tour", description: "WebGL-based walkthrough optimization for mobile." },
-        { id: "crm", name: "Lead Scoring", description: "Automated qualification engine based on behavior." },
-        { id: "ui", name: "Fluid UI", description: "Motion-rich interaction design with zero jank." }
+    "id": 3,
+    "title": "Blyn",
+    "category": "Social Infrastructure",
+    "description": "A high-fidelity social networking platform designed for seamless user engagement and real-time interactions.",
+    "metric": "Instant Search",
+    "year": "2024",
+    "status": "Live",
+    "image": "/DevHubFusion-X/projects/Dating-app.png",
+    "liveLink": "https://blyn-qe.vercel.app",
+    "architecture": ["React", "State Management", "Real-time sync", "Auth Service"],
+    "systemParts": [
+      {
+        "id": "social",
+        "name": "Discovery Engine",
+        "description": "Optimized matching and discovery algorithms for enhanced user connections."
+      },
+      {
+        "id": "chat",
+        "name": "Interactive UI",
+        "description": "Fluid, motion-rich interface built for high-retention social experiences."
+      }
     ]
   },
   {
-    id: 4,
-    title: "VELOCITY",
-    category: "Automotive E-comm",
-    description: "Direct-to-consumer sales platform for a custom electric vehicle manufacturer.",
-    metric: "300% Growth",
-    year: "2022",
-    status: "Scaled",
-    architecture: ["Configurator", "Payment Rail", "Inventory Sync", "ERP"],
-    image: "/project4.jpg",
-    systemParts: [
-        { id: "config", name: "3D Configurator", description: "Real-time rendering of vehicle customization options." },
-        { id: "checkout", name: "Payment Rail", description: "Multi-currency checkout with financing integration." },
-        { id: "inv", name: "Inventory Sync", description: "Global stock management across 4 warehouses." }
+    "id": 4,
+    "title": "LUCIS",
+    "category": "Visual Experience Design",
+    "description": "A high-fidelity minimalist portfolio platform for professional photographers, prioritizing visual storytelling and performance.",
+    "metric": "Sub-Second Load",
+    "year": "2024",
+    "status": "Live",
+    "image": "/DevHubFusion-X/projects/Photography-web.png",
+    "liveLink": "https://lucis-ph.vercel.app",
+    "architecture": ["Next.js", "Image Optimization", "Tailwind CSS", "Motion"],
+    "systemParts": [
+      {
+        "id": "gallery",
+        "name": "Visual Engine",
+        "description": "Dynamic masonry layout system with intelligent image prioritization."
+      },
+      {
+        "id": "perf",
+        "name": "Edge Assets",
+        "description": "Aggressive image optimization pipeline for instant content delivery."
+      }
     ]
   }
 ];

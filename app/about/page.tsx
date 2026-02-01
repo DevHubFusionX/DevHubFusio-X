@@ -125,14 +125,14 @@ export default function AboutPage() {
                            delay: index * 0.1,
                            ease: smoothEase
                         }}
-                        className={`p-8 rounded-[2.5rem] bg-white border border-blue-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col items-start gap-6 group lg:mt-${stat.offset}`}
+                        className={`p-8 rounded-[2.5rem] bg-white border border-green-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col items-start gap-6 group lg:mt-${stat.offset}`}
                         style={{ marginTop: typeof window !== 'undefined' && window.innerWidth >= 1024 ? `${stat.offset * 4}px` : 0 }}
                      >
                         <motion.div
                            initial={{ scale: 0.8, opacity: 0 }}
                            animate={statsInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                            transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                           className="w-14 h-14 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                           className="w-14 h-14 rounded-full bg-green-50 text-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                         >
                            <IconComponent size={28} strokeWidth={2} />
                         </motion.div>

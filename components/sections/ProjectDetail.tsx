@@ -5,12 +5,15 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Server, Globe, Database, Cpu } from 'lucide-react';
 import { Project } from '@/data/projects';
 import Link from 'next/link';
+import { useState } from 'react';
+import { ApplicationModal } from './ApplicationModal';
 
 interface ProjectDetailProps {
    project: Project;
 }
 
 export const ProjectDetail = ({ project }: ProjectDetailProps) => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
    const headerRef = useRef<HTMLDivElement>(null);
    const archRef = useRef<HTMLDivElement>(null);
    const outcomesRef = useRef<HTMLDivElement>(null);
@@ -122,30 +125,52 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
                      </motion.p>
                   </div>
 
-                  {/* Status Indicator - Scale in with glow */}
-                  <motion.div
-                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                     animate={headerInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
-                     transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
-                     className="flex items-center gap-4 px-6 py-3 bg-muted/30 rounded-lg border border-border/50"
-                  >
-                     <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">System Status</span>
-                        <span className="text-lg font-bold text-foreground flex items-center gap-2">
-                           <motion.span
-                              animate={{ scale: [1, 1.2, 1] }}
-                              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                              className={`w-2 h-2 rounded-full ${project.status === 'Live' ? 'bg-success' : 'bg-yellow-500'}`}
-                           />
-                           {project.status || "Deployed"}
-                        </span>
-                     </div>
-                     <div className="w-[1px] h-8 bg-border/50 mx-2"></div>
-                     <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Deploy Year</span>
-                        <span className="text-lg font-bold text-foreground font-mono">{project.year}</span>
-                     </div>
-                  </motion.div>
+                  <div className="flex flex-wrap items-center gap-4">
+                     {/* Status Indicator - Scale in with glow */}
+                     <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={headerInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
+                        transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
+                        className="flex items-center gap-4 px-6 py-3 bg-muted/30 rounded-lg border border-border/50"
+                     >
+                        <div className="flex flex-col">
+                           <span className="text-[10px] uppercase tracking-widest text-muted-foreground">System Status</span>
+                           <span className="text-lg font-bold text-foreground flex items-center gap-2">
+                              <motion.span
+                                 animate={{ scale: [1, 1.2, 1] }}
+                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                 className={`w-2 h-2 rounded-full ${project.status === 'Live' ? 'bg-success' : 'bg-yellow-500'}`}
+                              />
+                              {project.status || "Deployed"}
+                           </span>
+                        </div>
+                        <div className="w-[1px] h-8 bg-border/50 mx-2"></div>
+                        <div className="flex flex-col">
+                           <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Deploy Year</span>
+                           <span className="text-lg font-bold text-foreground font-mono">{project.year}</span>
+                        </div>
+                     </motion.div>
+
+                     {/* Live Project Link */}
+                     {project.liveLink && (
+                        <motion.div
+                           initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                           animate={headerInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
+                           transition={{ duration: 0.5, delay: 0.5, ease: smoothEase }}
+                        >
+                           <Link
+                              href={project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-3 px-6 py-4 bg-primary text-white rounded-lg font-bold uppercase tracking-wider shadow-lg shadow-primary/20 hover:bg-primary-hover transition-all group"
+                           >
+                              <Globe size={18} />
+                              <span>View Live Project</span>
+                              <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                           </Link>
+                        </motion.div>
+                     )}
+                  </div>
                </div>
             </div>
 
@@ -321,7 +346,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
                transition={{ delay: 1, duration: 0.5, ease: smoothEase }}
                className="mt-24 pt-12 flex justify-center"
             >
-               <Link href="#contact" className="group">
+               <div onClick={() => setIsModalOpen(true)} className="group cursor-pointer">
                   <motion.div
                      whileHover={{ scale: 1.02 }}
                      whileTap={{ scale: 0.98 }}
@@ -344,10 +369,18 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
                         <ArrowUpRight size={18} />
                      </motion.div>
                   </motion.div>
-               </Link>
+               </div>
             </motion.div>
 
          </div>
+
+         <ApplicationModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            title="Initiate Similar Build"
+            subject={`Similar Build Request: ${project.title}`}
+            initialDescription={`I'm interested in building something similar to ${project.title}. Here's what I have in mind:\n\n`}
+         />
       </main>
    );
 };

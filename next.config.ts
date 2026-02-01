@@ -4,8 +4,8 @@ const nextConfig: import('next').NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: "/DevHubFusio-X",
-  assetPrefix: "/DevHubFusio-X/",
+  basePath: "/DevHubFusion-X",
+  assetPrefix: "/DevHubFusion-X/",
 };
 
 export default nextConfig;
