@@ -14,7 +14,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DevHubFusionX | Strategic Development",
-  description: "I build scalable assets for founders. Quality is the only leverage.",
+  description: "Bespoke engineering for founders who understand that quality is the only leverage that matters.",
+  openGraph: {
+    title: "DevHubFusionX | Strategic Development",
+    description: "I build scalable assets for founders. High-authority engineering and zero-waste architecture.",
+    type: "website",
+    locale: "en_US",
+    siteName: "DevHubFusionX",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DevHubFusionX | Strategic Development",
+    description: "Bespoke engineering for founders who value speed, precision, and architectural integrity.",
+  }
 };
 
 import { Navbar } from "@/components/layout/Navbar";

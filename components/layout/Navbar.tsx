@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Strategy', href: '/strategy' },
-  { name: 'Projects', href: '/#projects' },
+  { name: 'Archive', href: '/projects' },
   { name: 'Services', href: '/services' },
   { name: 'About', href: '/about' },
 ];
@@ -54,29 +54,29 @@ export const Navbar = () => {
               </Link>
             ))}
           </div>
-          
+
           {/* Reference-Style CTA Combo */}
           <div className="flex items-center gap-2 pl-4 border-l border-border/40">
             {/* 1. Circular Arrow Button */}
             <Link href="#contact" className="group">
-               <motion.div 
-                 whileHover={{ scale: 1.1, rotate: 15 }}
-                 whileTap={{ scale: 0.9 }}
-                 className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md"
-               >
-                 <ArrowUpRight size={20} className="transition-transform group-hover:rotate-45" />
-               </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 15 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md"
+              >
+                <ArrowUpRight size={20} className="transition-transform group-hover:rotate-45" />
+              </motion.div>
             </Link>
 
             {/* 2. Black Pill Button */}
             <Link href="mailto:DevHubFusionX@gmail.com">
-               <motion.div 
-                 whileHover={{ scale: 1.05 }}
-                 whileTap={{ scale: 0.95 }}
-                 className="px-6 py-2.5 rounded-full bg-foreground text-background font-bold text-sm hover:bg-foreground/90 transition-colors shadow-md flex items-center gap-2"
-               >
-                 <span>DevHubFusionX@gmail.com</span>
-               </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2.5 rounded-full bg-foreground text-background font-bold text-sm hover:bg-foreground/90 transition-colors shadow-md flex items-center gap-2"
+              >
+                <span>DevHubFusionX@gmail.com</span>
+              </motion.div>
             </Link>
           </div>
         </div>
@@ -111,12 +111,12 @@ export const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-6 border-t border-border/20 flex flex-col gap-4">
-                 <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                    <div className="flex items-center justify-between w-full p-4 rounded-xl bg-muted">
-                       <span className="font-bold">Start a Project</span>
-                       <ArrowUpRight size={20} />
-                    </div>
-                 </Link>
+                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div className="flex items-center justify-between w-full p-4 rounded-xl bg-muted">
+                    <span className="font-bold">Start a Project</span>
+                    <ArrowUpRight size={20} />
+                  </div>
+                </Link>
               </div>
             </div>
           </motion.div>

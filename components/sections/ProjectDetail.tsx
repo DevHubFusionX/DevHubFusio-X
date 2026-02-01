@@ -61,7 +61,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
             transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
             className="fixed bottom-6 left-6 md:left-12 z-50"
          >
-            <Link href="/#projects" className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-md border border-border hover:border-primary transition-colors group">
+            <Link href="/projects" className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-md border border-border hover:border-primary transition-colors group">
                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                <span className="text-xs font-bold uppercase tracking-wider">System Log</span>
             </Link>
@@ -95,21 +95,31 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
 
                      {/* Title - Letter by letter reveal */}
                      <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase mb-2 overflow-hidden">
-                        <span className="flex flex-wrap">
-                           {titleLetters.map((letter, index) => (
-                              <motion.span
-                                 key={index}
-                                 initial={{ y: '100%', opacity: 0 }}
-                                 animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                                 transition={{
-                                    duration: 0.4,
-                                    delay: 0.15 + (index * 0.03),
-                                    ease: snappyEase
-                                 }}
-                                 className="inline-block"
-                              >
-                                 {letter === ' ' ? '\u00A0' : letter}
-                              </motion.span>
+                        <span className="flex flex-wrap gap-x-[0.2em]">
+                           {project.title.split(' ').map((word, wordIndex) => (
+                              <span key={wordIndex} className="inline-block whitespace-nowrap">
+                                 {word.split('').map((letter, letterIndex) => {
+                                    // Calculate global index for staggered delay
+                                    const previousWords = project.title.split(' ').slice(0, wordIndex).join(' ');
+                                    const globalIndex = previousWords.length + (wordIndex > 0 ? 1 : 0) + letterIndex;
+
+                                    return (
+                                       <motion.span
+                                          key={letterIndex}
+                                          initial={{ y: '100%', opacity: 0 }}
+                                          animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
+                                          transition={{
+                                             duration: 0.4,
+                                             delay: 0.15 + (globalIndex * 0.03),
+                                             ease: snappyEase
+                                          }}
+                                          className="inline-block"
+                                       >
+                                          {letter}
+                                       </motion.span>
+                                    );
+                                 })}
+                              </span>
                            ))}
                         </span>
                      </h1>

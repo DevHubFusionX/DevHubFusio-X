@@ -30,7 +30,7 @@ export const Hero = () => {
   ];
 
   const stats = [
-    { value: '02', label: 'Clients / Qtr' },
+    { value: '02', label: 'Partnerships / Qtr' },
     { value: '10x', label: 'Impact' }
   ];
 
