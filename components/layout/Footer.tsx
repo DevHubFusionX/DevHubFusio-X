@@ -137,8 +137,8 @@ export const Footer = () => {
         >
           <p>© {new Date().getFullYear()} DEVHUBFUSIONX™</p>
           <div className="flex gap-8 mt-4 md:mt-0">
-            <Link href="#" className="hover:opacity-100 transition-opacity duration-200">Privacy Policy</Link>
-            <Link href="#" className="hover:opacity-100 transition-opacity duration-200">Terms of Service</Link>
+            <Link href="/privacy" className="hover:opacity-100 transition-opacity duration-200">Privacy Policy</Link>
+            <Link href="/terms" className="hover:opacity-100 transition-opacity duration-200">Terms of Service</Link>
           </div>
         </motion.div>
 
