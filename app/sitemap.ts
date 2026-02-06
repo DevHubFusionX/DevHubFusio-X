@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${baseUrl}${route}/`,
     lastModified: new URLSearchParams().get('t') ? new Date() : new Date('2026-02-06'), // Use current date for lastmod
     changeFrequency: 'monthly' as const,
     priority: route === '' ? 1 : 0.8,
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic project routes
   const projectRoutes = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.id}`,
+    url: `${baseUrl}/projects/${project.id}/`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.6,

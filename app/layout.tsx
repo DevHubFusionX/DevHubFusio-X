@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X"),
+  metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X/"),
   title: {
     default: "DevHubFusionX | Strategic Development",
     template: "%s | DevHubFusionX"
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DevHubFusionX | Strategic Development",
     description: "I build scalable assets for founders. High-authority engineering and zero-waste architecture.",
-    url: "https://devhubfusionx.com/DevHubFusion-X",
+    url: "https://devhubfusionx.github.io/DevHubFusion-X/",
     siteName: "DevHubFusionX",
     images: [
       {
@@ -81,7 +81,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "DevHubFusionX",
-    "url": "https://devhubfusionx.github.io/DevHubFusion-X",
+    "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
     "logo": "https://devhubfusionx.github.io/DevHubFusion-X/Logo.svg",
     "sameAs": [
       "https://x.com/DevHubFusionX",
