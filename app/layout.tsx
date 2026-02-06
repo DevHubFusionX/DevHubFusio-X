@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X/"),
+  metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X"),
   title: {
     default: "DevHubFusionX | Strategic Development",
     template: "%s | DevHubFusionX"
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     siteName: "DevHubFusionX",
     images: [
       {
-        url: "/Logo.svg",
-        width: 800,
-        height: 600,
+        url: "/devHub.png",
+        width: 1200,
+        height: 630,
         alt: "DevHubFusionX Logo",
       },
     ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevHubFusionX | Strategic Development",
     description: "Bespoke engineering for founders who value speed, precision, and architectural integrity.",
-    images: ["/Logo.svg"],
+    images: ["/devHub.png"],
   },
   robots: {
     index: true,
@@ -82,7 +82,7 @@ export default function RootLayout({
     "@type": "Organization",
     "name": "DevHubFusionX",
     "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
-    "logo": "https://devhubfusionx.github.io/DevHubFusion-X/Logo.svg",
+    "logo": "https://devhubfusionx.github.io/DevHubFusion-X/devHub.png",
     "sameAs": [
       "https://x.com/DevHubFusionX",
       "https://github.com/DevHubFusionX",
