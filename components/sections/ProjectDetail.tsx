@@ -32,8 +32,8 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
    // Architecture fallback
    const archSteps = project.architecture || ["Client", "API", "Core", "Database"];
 
-   // Outcomes list
-   const outcomes = [
+   // Outcomes list from project data or fallback
+   const outcomes = project.outcomes || [
       "Zero downtime during peak load (Black Friday)",
       "Latency reduced by 40% globally",
       "Infrastructure costs cut by 15%"
@@ -264,6 +264,55 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
                </motion.div>
             </div>
 
+            {/* NEW: Challenge & Solution Strategic Deep Dive */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+               {/* Challenge Section */}
+               <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="space-y-6"
+               >
+                  <div className="flex items-center gap-2 text-primary">
+                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] border-b border-primary/30 pb-1">Phase 01</span>
+                     <h4 className="text-xs font-black uppercase tracking-widest">The Challenge</h4>
+                  </div>
+                  <h3 className="text-3xl font-black tracking-tight leading-none uppercase">Strategic Problem<br />Statement</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                     {project.challenge || "The initial requirement focused on scaling infrastructure while maintaining extreme precision in execution and user experience."}
+                  </p>
+               </motion.div>
+
+               {/* Solution Section */}
+               <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="space-y-6"
+               >
+                  <div className="flex items-center gap-2 text-success">
+                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] border-b border-success/30 pb-1">Phase 02</span>
+                     <h4 className="text-xs font-black uppercase tracking-widest">The Solution</h4>
+                  </div>
+                  <h3 className="text-3xl font-black tracking-tight leading-none uppercase">Engineering<br />Execution</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                     {project.solution || "I architected a zero-waste system that prioritizes speed and scalability, ensuring that the primary objective was achieved with sub-second performance metrics."}
+                  </p>
+
+                  {/* Role Badge */}
+                  {project.role && (
+                     <div className="pt-4">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/30 border border-border/50 rounded-full">
+                           <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">My Role:</span>
+                           <span className="text-xs font-bold text-foreground">{project.role}</span>
+                        </div>
+                     </div>
+                  )}
+               </motion.div>
+            </div>
+
             {/* BOTTOM: Outcomes & Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-border/40 pt-12">
                <div ref={outcomesRef}>
@@ -281,7 +330,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
                      transition={{ duration: 0.4, delay: 0.1, ease: smoothEase }}
                      className="text-lg text-muted-foreground leading-relaxed mb-6"
                   >
-                     This system was engineered to specific tolerances. The primary objective was achieved within the first quarter of deployment.
+                     {project.description}
                   </motion.p>
                   <ul className="space-y-4">
                      {outcomes.map((outcome, i) => (

@@ -6,7 +6,6 @@ const nextConfig: import('next').NextConfig = {
     unoptimized: true
   },
   basePath: "/DevHubFusion-X",
-  assetPrefix: "/DevHubFusion-X/",
 };
 
 export default nextConfig;
