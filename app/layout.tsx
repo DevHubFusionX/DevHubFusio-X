@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devhubfusionx.com/DevHubFusion-X"),
+  metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X"),
   title: {
     default: "DevHubFusionX | Strategic Development",
     template: "%s | DevHubFusionX"
@@ -81,8 +81,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "DevHubFusionX",
-    "url": "https://devhubfusionx.com/DevHubFusion-X",
-    "logo": "https://devhubfusionx.com/DevHubFusion-X/Logo.svg",
+    "url": "https://devhubfusionx.github.io/DevHubFusion-X",
+    "logo": "https://devhubfusionx.github.io/DevHubFusion-X/Logo.svg",
     "sameAs": [
       "https://x.com/DevHubFusionX",
       "https://github.com/DevHubFusionX",

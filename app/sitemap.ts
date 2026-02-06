@@ -4,7 +4,7 @@ import { projects } from '@/data/projects';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devhubfusionx.com/DevHubFusion-X';
+  const baseUrl = 'https://devhubfusionx.github.io/DevHubFusion-X';
 
   // Static routes
   const staticRoutes = [
